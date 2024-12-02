@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up form</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="title">
+      <h1>Volunteer Sign-Up</h1>
+      <p>Join Us in Making a Difference!</p>
+    </div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="camper-info.html">Camper Info</a>
+      <a href="events.html">Events</a>
+      <a href="volunteering.html">Volunteering</a>
+      <a href="contact.html">Contact</a>
+      <a href="donate.html">Donate</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="form-container">
+      <h2>Sign Up to Volunteer</h2>
+      <form id="volunteerForm">
+        <label for="name">Please Enter Your Full Legal Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <span class="error" id="nameError"></span>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <span class="error" id="emailError"></span>
+
+        <label for="message">Why are you interested in volunteering?</label>
+        <textarea id="message" name="message" rows="5" placeholder="Tell us about yourself" required></textarea>
+        <span class="error" id="messageError"></span>
+
+        <button type="button" onclick="validateForm()">Submit</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p> 2024 Camp Casey. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      let isValid = true;
+
+      if (!name) {
+        document.getElementById("nameError").innerText = "Name is required.";
+        Valid = false;
+      } else {
+        document.getElementById("nameError").innerText = "";
+      }
+
+      if (!email) {
+        document.getElementById("emailError").innerText = "Email is required.";
+        isValid = false;
+      } else {
+        document.getElementById("emailError").innerText = "";
+      }
+
+      if (!message) {
+        document.getElementById("messageError").innerText = "Personal statement is required.";
+        isValid = false;
+      } else {
+        document.getElementById("messageError").innerText = "";
+      }
+
+      if (isValid) {
+        alert("Thank you for signing up! We will get in touch with you soon.");
+        document.getElementById("volunteerForm").reset();
+      }
+    }
+  </script>
+</body>
+</html>
